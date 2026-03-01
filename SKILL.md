@@ -32,12 +32,15 @@ Access iCloud Calendar via CalDAV protocol.
   "apple_id": "your@email",
   "app_password": "app-specific-password",
   "user_id": "your-icloud-user-id",
+  "default_calendar": "",
   "calendars": {
     "工作": "calendar-id",
     "家庭日历": "calendar-id"
   }
 }
 ```
+
+- `default_calendar`: Optional. Set to "" (empty) to auto-select first calendar, or specify a calendar name like "工作" or "家庭日历"
 
 ## Setup
 
@@ -50,6 +53,6 @@ Access iCloud Calendar via CalDAV protocol.
 # Check upcoming events
 python3 ~/.openclaw/scripts/icloud_calendar.py upcoming
 
-# Add reminder
+# Add reminder (uses default_calendar or first available)
 python3 ~/.openclaw/scripts/icloud_calendar.py add "喝水" 30
 ```
