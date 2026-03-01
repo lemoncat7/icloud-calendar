@@ -25,11 +25,11 @@ cp config.example.json ~/.openclaw/conf/icloud-calendar/config.json
 ```json
 {
   "apple_id": "your@icloud.email",
-  "app_password": "app-specific-password",
-  "user_id": "0012345678",
+  "app_password": "your-app-password",
+  "user_id": "your-user-id",
   "calendars": {
-    "工作": "工作日历ID",
-    "家庭日历": "家庭日历ID"
+    "工作": "日历ID",
+    "家庭日历": "日历ID"
   }
 }
 ```
@@ -39,6 +39,43 @@ cp config.example.json ~/.openclaw/conf/icloud-calendar/config.json
 1. 登录 https://appleid.apple.com
 2. 前往「安全」→「专用密码」
 3. 生成新密码
+
+### 3. 获取 user_id
+
+运行以下命令获取 user_id：
+
+```bash
+curl -s -u "your@icloud.email:your-app-password" https://caldav.icloud.com/
+```
+
+输出示例：
+```xml
+<multistatus>
+  <response>
+    <href>/17488096128/calendars/</href>
+  </response>
+</multistatus>
+```
+
+**user_id 就是 URL 中的数字**：17488096128
+
+### 4. 获取日历 ID
+
+运行以下命令获取：
+
+```bash
+python3 ~/.openclaw/scripts/icloud_calendar.py calendars
+```
+
+输出格式：
+```json
+{
+  "工作": "005D6E33-C41E-4D33-AAA8-8C169B69B27E",
+  "家庭日历": "489BCDE4-8FAA-4A7F-9791-6FD2E6516D32"
+}
+```
+
+将输出的 ID 填入配置文件的 calendars 字段。
 
 ## 使用
 
@@ -51,9 +88,6 @@ python3 ~/.openclaw/scripts/icloud_calendar.py today
 
 # 获取未来7天事件
 python3 ~/.openclaw/scripts/icloud_calendar.py list
-
-# 获取日历 ID
-python3 ~/.openclaw/scripts/icloud_calendar.py calendars
 
 # 添加日程（30分钟后提醒）
 python3 ~/.openclaw/scripts/icloud_calendar.py add "喝水提醒" 30
