@@ -70,8 +70,8 @@ python3 ~/.openclaw/scripts/icloud_calendar.py calendars
 输出格式：
 ```json
 {
-  "工作": "005D6E33-C41E-4D33-AAA8-8C169B69B27E",
-  "家庭日历": "489BCDE4-8FAA-4A7F-9791-6FD2E6516D32"
+  "工作": "005Dxxxx-xxxx-xxxx-xxxx-xxxxB69B27E",
+  "家庭日历": "489Bxxxx-xxxx-xxxx-xxxx-xxxxE6516D32"
 }
 ```
 
