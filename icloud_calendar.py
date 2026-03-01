@@ -172,7 +172,7 @@ def cmd_today():
 def cmd_add(summary, description="", minutes=20):
     """添加日程"""
     # 默认添加到"家庭日历"
-    calendar_name = "家庭日历"
+    calendar_name = config.get("default_calendar", "") or (list(CALENDARS.keys())[0] if CALENDARS else "")
     cal_id = CALENDARS.get(calendar_name, "")
     
     if not cal_id:
