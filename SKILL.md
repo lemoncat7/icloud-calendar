@@ -1,6 +1,6 @@
 ---
 name: icloud-calendar
-description: "Access iCloud Calendar via CalDAV. Use for: (1) Reading calendar events, (2) Getting upcoming reminders, (3) Adding events. Requires config with apple_id, app_password, user_id, and calendar IDs."
+description: "Access iCloud Calendar via CalDAV. Use for: (1) Reading calendar events, (2) Getting upcoming reminders, (3) Adding events, (4) Deleting events. Requires config with apple_id, app_password, user_id, and calendar IDs."
 metadata:
   - Calendar
   - iCloud
@@ -15,10 +15,14 @@ Access iCloud Calendar via CalDAV protocol.
 
 | Command | Description |
 |---------|-------------|
+| `icloud_calendar.py list` | Get events for next 7 days |
 | `icloud_calendar.py upcoming` | Get events in next 30 minutes |
 | `icloud_calendar.py today` | Get today's events |
-| `icloud_calendar.py list` | Get events for next 7 days |
+| `icloud_calendar.py calendars` | List all calendars |
 | `icloud_calendar.py add "Title" 30` | Add event in 30 minutes |
+| `icloud_calendar.py delete "Title"` | Delete event by title |
+| `icloud_calendar.py delete "Title" "工作"` | Delete event from specific calendar |
+| `icloud_calendar.py delete <uuid>` | Delete event by UID |
 
 ## Installation
 
@@ -55,4 +59,10 @@ python3 ~/.openclaw/scripts/icloud_calendar.py upcoming
 
 # Add reminder (uses default_calendar or first available)
 python3 ~/.openclaw/scripts/icloud_calendar.py add "喝水" 30
+
+# Delete event by title
+python3 ~/.openclaw/scripts/icloud_calendar.py delete "喝水"
+
+# Delete event by UID
+python3 ~/.openclaw/scripts/icloud_calendar.py delete "f4603e88-5dcc-11ef-9da0-f2b427513b45"
 ```

@@ -7,6 +7,7 @@
 - 读取日历事件
 - 获取日历提醒
 - 添加日程
+- 删除日程
 
 ## 安装
 
@@ -91,7 +92,27 @@ python3 ~/.openclaw/scripts/icloud_calendar.py list
 
 # 添加日程（30分钟后提醒）
 python3 ~/.openclaw/scripts/icloud_calendar.py add "喝水提醒" 30
+
+# 删除日程（通过标题）
+python3 ~/.openclaw/scripts/icloud_calendar.py delete "喝水提醒"
+
+# 删除日程（指定日历）
+python3 ~/.openclaw/scripts/icloud_calendar.py delete "喝水提醒" "工作"
+
+# 删除日程（通过 UID）
+python3 ~/.openclaw/scripts/icloud_calendar.py delete "f4603e88-5dcc-11ef-9da0-f2b427513b45"
 ```
+
+## 命令
+
+| 命令 | 说明 |
+|------|------|
+| `list` | 列出未来7天事件 |
+| `upcoming` | 获取最近30分钟事件 |
+| `today` | 获取今日事件 |
+| `calendars` | 获取日历列表 |
+| `add <标题> [分钟]` | 添加日程（默认20分钟后） |
+| `delete <标题或UID> [日历名]` | 删除日程 |
 
 ## 输出示例
 
