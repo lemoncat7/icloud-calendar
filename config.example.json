@@ -1,0 +1,9 @@
+{
+  "apple_id": "your@icloud.email",
+  "app_password": "xxxx-xxxx-xxxx-xxxx",
+  "user_id": "0012345678",
+  "calendars": {
+    "工作": "日历ID",
+    "家庭日历": "日历ID"
+  }
+}
