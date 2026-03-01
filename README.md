@@ -52,12 +52,12 @@ curl -s -u "your@icloud.email:your-app-password" https://caldav.icloud.com/
 ```xml
 <multistatus>
   <response>
-    <href>/17488096128/calendars/</href>
+    <href>/<YOUR_USER_ID>/calendars/</href>
   </response>
 </multistatus>
 ```
 
-**user_id 就是 URL 中的数字**：17488096128
+**user_id 就是 URL 中的数字**：<YOUR_USER_ID>
 
 ### 4. 获取日历 ID
 
